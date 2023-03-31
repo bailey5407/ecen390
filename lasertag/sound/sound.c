@@ -52,8 +52,7 @@ For questions, contact Brad Hutchings or Jeff Goeders, https://ece.byu.edu/
 #define SOUND_MULTIPLIER INT16_MAX / 3 // Primitive volume control.
 
 #define NO_SOUND 0 // A zero generates no sound.
-#define ONE_SECOND_OF_SOUND_ARRAY_SIZE                                         \
-  48000 // The sample rate is 48k so that is 1 second's worth.
+#define ONE_SECOND_OF_SOUND_ARRAY_SIZE 48000 // The sample rate is 48k so that is 1 second's worth.
 uint16_t soundOfSilence[ONE_SECOND_OF_SOUND_ARRAY_SIZE];
 
 // Declared below the sound state-machine code.
@@ -403,7 +402,7 @@ static int AudioRegSet(XIicPs *IIcPtr, u8 regAddr, u16 regData) {
   // while (XIicPs_BusIsBusy(IIcPtr)) {
   //   /* NOP */
   // }
-  // return XST_SUCCESS;
+  return XST_SUCCESS;
 }
 
 /***  AudioInitialize(u16 timerID,  u16 iicID, u32 i2sAddr)

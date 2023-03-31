@@ -1,0 +1,13 @@
+/auto/fsf/nbaile17/ecen390/build_sd/CMakeFiles/BOOT.bin.dir
+/auto/fsf/nbaile17/ecen390/build_sd/CMakeFiles/run.dir
+/auto/fsf/nbaile17/ecen390/build_sd/CMakeFiles/edit_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/CMakeFiles/rebuild_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/CMakeFiles/lasertag.elf.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/CMakeFiles/edit_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/CMakeFiles/rebuild_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/sound/CMakeFiles/sound.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/sound/CMakeFiles/edit_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/sound/CMakeFiles/rebuild_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/support/CMakeFiles/support.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/support/CMakeFiles/edit_cache.dir
+/auto/fsf/nbaile17/ecen390/build_sd/lasertag/support/CMakeFiles/rebuild_cache.dir

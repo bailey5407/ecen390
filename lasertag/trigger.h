@@ -47,4 +47,6 @@ void trigger_setRemainingShotCount(trigger_shotsRemaining_t count);
 // Depends on the interrupt handler to call tick function.
 void trigger_runTest();
 
+void trigger_reload();
+
 #endif /* TRIGGER_H_ */

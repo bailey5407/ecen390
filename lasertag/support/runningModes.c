@@ -34,7 +34,7 @@ For questions, contact Brad Hutchings or Jeff Goeders, https://ece.byu.edu/
 // Uncomment this code so that the code in the various modes will
 // ignore your own frequency. You still must properly implement
 // the ability to ignore frequencies in detector.c
-//#define IGNORE_OWN_FREQUENCY 1
+#define IGNORE_OWN_FREQUENCY 1
 
 #define MAX_HIT_COUNT 100000
 
@@ -199,7 +199,6 @@ uint16_t runningModes_getFrequencySetting(void) {
 // Transmit frequency is selected via the slide-switches.
 void runningModes_continuous(void) {
   runningModes_initAll(); // All necessary inits are called here.
-
   bool ignoredFrequencies[FILTER_FREQUENCY_COUNT];
   // setup the ignore frequencies array so you don't ignore any frequency.
   for (uint16_t i = 0; i < FILTER_FREQUENCY_COUNT; i++)
@@ -209,7 +208,6 @@ void runningModes_continuous(void) {
   ignoredFrequencies[runningModes_getFrequencySetting()] = true;
 #endif
   detector_setIgnoredFrequencies(ignoredFrequencies);
-
   uint16_t histogramSystemTicks =
       0; // Only update the histogram display every so many ticks.
   interrupts_enableTimerGlobalInts(); // Allow timer interrupts.
@@ -262,7 +260,6 @@ void runningModes_continuous(void) {
 void runningModes_shooter(void) {
   uint16_t hitCount = 0;
   runningModes_initAll();
-
   // Init the ignored-frequencies so no frequencies are ignored.
   bool ignoredFrequencies[FILTER_FREQUENCY_COUNT];
   for (uint16_t i = 0; i < FILTER_FREQUENCY_COUNT; i++)
@@ -290,23 +287,18 @@ void runningModes_shooter(void) {
 
   while ((!(buttons_read() & BUTTONS_BTN3_MASK)) &&
          hitCount < MAX_HIT_COUNT) { // Run until you detect BTN3 pressed.
-    transmitter_setFrequencyNumber(
-        runningModes_getFrequencySetting());    // Read the switches and switch
-                                                // frequency as required.
-    intervalTimer_start(MAIN_CUMULATIVE_TIMER); // Measure run-time when you are
-                                                // doing something.
+    transmitter_setFrequencyNumber(runningModes_getFrequencySetting());    // Read the switches and switch frequency as required.
+    intervalTimer_start(MAIN_CUMULATIVE_TIMER); // Measure run-time when you are doing something.
     // Run filters, compute power, run hit-detection.
     detector(INTERRUPTS_CURRENTLY_ENABLED); // Interrupts are currently enabled.
     if (detector_hitDetected()) {           // Hit detected
       hitCount++;                           // increment the hit count.
       detector_clearHit();                  // Clear the hit.
-      detector_hitCount_t
-          hitCounts[DETECTOR_HIT_ARRAY_SIZE]; // Store the hit-counts here.
+      detector_hitCount_t hitCounts[DETECTOR_HIT_ARRAY_SIZE]; // Store the hit-counts here.
       detector_getHitCounts(hitCounts);       // Get the current hit counts.
       histogram_plotUserHits(hitCounts);      // Plot the hit counts on the TFT.
     }
-    intervalTimer_stop(
-        MAIN_CUMULATIVE_TIMER); // All done with actual processing.
+    intervalTimer_stop(MAIN_CUMULATIVE_TIMER); // All done with actual processing.
   }
   interrupts_disableArmInts(); // Done with loop, disable the interrupts.
   hitLedTimer_turnLedOff();    // Save power :-)

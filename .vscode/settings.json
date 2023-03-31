@@ -5,5 +5,19 @@
     "[cpp]": {
         "editor.formatOnSave": false,
     },
-    "C_Cpp.clang_format_fallbackStyle": "LLVM"
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "files.associations": {
+        "filter.h": "c",
+        "mio.h": "c",
+        "transmitter.h": "c",
+        "isr.h": "c",
+        "hitledtimer.h": "c",
+        "utils.h": "c",
+        "trigger.h": "c",
+        "detector.h": "c",
+        "buffertest.h": "c",
+        "interrupts.h": "c",
+        "runningmodes.h": "c",
+        "intervaltimer.h": "c"
+    }
 }

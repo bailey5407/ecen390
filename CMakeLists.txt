@@ -79,7 +79,7 @@ add_custom_target(BOOT.bin
 
 add_custom_target(run
     DEPENDS ${ELF_PATH}
-    COMMAND ../run_elf_on_board.py ${ELF_PATH}
+    COMMAND ../run_elf_on_board.py ${ELF_PATH} --openocd
 )
 
 endif()

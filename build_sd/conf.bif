@@ -1,0 +1,7 @@
+//arch = zynq split = false format = BIN
+the_ROM_image:
+{
+ [bootloader]../platforms/hw/fsbl.elf
+ ../platforms/hw/330_hw_system.bit
+ ./lasertag/lasertag.elf
+}

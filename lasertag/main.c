@@ -8,16 +8,16 @@ For questions, contact Brad Hutchings or Jeff Goeders, https://ece.byu.edu/
 */
 
 // Uncomment to run tests, various Milestones
-#define RUNNING_MODE_TESTS
+// #define RUNNING_MODE_TESTS
 
 // Uncomment to run Milestone 3, Task 2
 // #define RUNNING_MODE_M3_T2
 
 // Uncomment to run continuous/shooter mode, Milestone 3, Task 3
-// #define RUNNING_MODE_M3_T3
+//  #define RUNNING_MODE_M3_T3
 
 // Uncomment to run two-player mode, Milestone 5
-// #define RUNNING_MODE_M5
+#define RUNNING_MODE_M5
 
 #include <assert.h>
 #include <stdio.h>
@@ -54,9 +54,10 @@ int main() {
 #ifdef RUNNING_MODE_TESTS
   // interrupts not needed for these tests
   // queue_runTest(); // M1
-  filter_runTest(); // M3 T1
+  // filter_runTest(); // M3 T1
   // transmitter_runTest(); // M3 T2
   // buffer_runTest(); // M3 T3
+  // detector_runSortTest();
   // detector_runTest(); // M3 T3
   // sound_runTest(); // M5
 #endif
@@ -72,11 +73,16 @@ int main() {
   interrupts_startArmPrivateTimer();  // start the main timer.
   interrupts_enableArmInts(); // now the ARM processor can see interrupts.
 
-  transmitter_runTestNoncontinuous();
-  transmitter_runTestContinuous();
-  trigger_runTest();
+  // printf("RUNNING NON-CONTINUOUS TEST\n");
+  // transmitter_runTestNoncontinuous();
+  // printf("RUNNING CONTINUOUS TEST\n");
+  // transmitter_runTestContinuous();  
+  // printf("RUNNING TRIGGER TEST\n");
+  // trigger_runTest();
+  // printf("RUNNING HITLED TIMER TEST\n");
   hitLedTimer_runTest();
-  lockoutTimer_runTest();
+  // printf("RUNNING LOCKOUT TIMER TEST\n");
+  // lockoutTimer_runTest();
 #endif
 
 #ifdef RUNNING_MODE_M3_T3
@@ -97,6 +103,6 @@ int main() {
   game_twoTeamTag();
 #endif
 
-  display_println("System is Ending");
-  return 0;
+display_println("System is Ending");
+return 0;
 }

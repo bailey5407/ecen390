@@ -18,6 +18,6 @@ For questions, contact Brad Hutchings or Jeff Goeders, https://ece.byu.edu/
 // The gun is clip-based and each clip contains a fixed number of shots
 // that takes a short time to reload a new clip.
 // The clips are automatically loaded.
-void game_twoTeamTag(void);
+void game_twoTeamTag();
 
 #endif /* GAME_H_ */
